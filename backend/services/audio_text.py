@@ -13,8 +13,7 @@ def audio_text(audio_file):
         with open(f"jsons/{file.split(".")[0]}.json", "w") as f:
             chunk = []
             for seg in result["segments"]:
-                chunk.append({"number": num, "title": file.split(".")[0][2:],"start": seg["start"], "end": seg["end"], "text": seg["text"]})
-                num+=1
+                chunk.append({"number": num, "title": file.split(".")[0],"start": seg["start"], "end": seg["end"], "text": seg["text"]})
 
             text = {
                 "chunk": chunk,
@@ -22,4 +21,5 @@ def audio_text(audio_file):
 
             }
             json.dump(text, f)
+        num+=1
     return "Convert Text successfully"

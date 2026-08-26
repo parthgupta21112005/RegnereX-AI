@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routes.video_audio import file
 from routes.audio_text import json
+from routes.rag_assistant import rag_ai
 
 app = FastAPI(title="Welcome to Rag")
 app.add_middleware(
@@ -15,3 +16,4 @@ app.add_middleware(
 
 app.include_router(file, prefix="", tags=["file"])
 app.include_router(json, prefix="", tags=["json"])
+app.include_router(rag_ai, prefix="", tags=["ai_assistant"])

@@ -43,8 +43,5 @@ def response(income_query):
     '''
 
     response = inference(prompt)["response"]
-
-    with open("response.txt", "w") as f:
-        f.write(response)
         
     return response
